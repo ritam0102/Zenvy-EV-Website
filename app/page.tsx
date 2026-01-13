@@ -33,7 +33,7 @@ const EV_CARS = [
     range: 520,
     battery: 82,
     charging: "35 mins (DC)",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=800",
+    image: "SUVV.svg",
     brand: "Zenvy"
   },
   {
@@ -44,7 +44,7 @@ const EV_CARS = [
     range: 450,
     battery: 60,
     charging: "45 mins (DC)",
-    image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&q=80&w=800",
+    image: "SDD.svg",
     brand: "Zenvy"
   },
   {
@@ -55,7 +55,7 @@ const EV_CARS = [
     range: 400,
     battery: 95,
     charging: "25 mins (DC)",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800",
+    image: "Sp.svg",
     brand: "Zenvy"
   },
   {
@@ -66,29 +66,29 @@ const EV_CARS = [
     range: 320,
     battery: 40,
     charging: "50 mins (DC)",
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+    image: "HB.svg",
     brand: "Zenvy"
   },
   {
     id: 5,
-    name: "Model S",
+    name: "Nova",
     type: "Sedan",
-    price: 85,
+    price: 45,
     range: 650,
     battery: 100,
     charging: "30 mins (DC)",
-    image: "https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&q=80&w=800",
+    image: "SD.svg",
     brand: "Tesla"
   },
   {
     id: 6,
-    name: "Nexon EV",
+    name: "Flux",
     type: "SUV",
-    price: 18,
+    price: 60,
     range: 312,
     battery: 30,
     charging: "60 mins (DC)",
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+    image: "SUV.svg",
     brand: "Tata"
   }
 ];
@@ -96,7 +96,6 @@ const EV_CARS = [
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [maxPrice, setMaxPrice] = useState(100);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [minRange, setMinRange] = useState(0);
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -133,22 +132,14 @@ export default function Home() {
     return EV_CARS.filter(car => {
       const categoryMatch = selectedCategory === "All" || car.type === selectedCategory;
       const priceMatch = car.price <= maxPrice;
-      const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(car.brand);
       const rangeMatch = car.range >= minRange;
-      return categoryMatch && priceMatch && brandMatch && rangeMatch;
+      return categoryMatch && priceMatch && rangeMatch;
     });
-  }, [selectedCategory, maxPrice, selectedBrands, minRange]);
-
-  const toggleBrand = (brand: string) => {
-    setSelectedBrands(prev => 
-      prev.includes(brand) ? prev.filter(b => b !== brand) : [...prev, brand]
-    );
-  };
+  }, [selectedCategory, maxPrice, minRange]);
 
   const resetFilters = () => {
     setSelectedCategory("All");
     setMaxPrice(100);
-    setSelectedBrands([]);
     setMinRange(0);
   };
 
@@ -326,24 +317,6 @@ export default function Home() {
                       <span>700km</span>
                     </div>
                   </div>
-                  <div>
-                    <label className="text-sm font-bold mb-4 block">Brand</label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {['Tesla', 'Tata', 'BYD', 'Zenvy'].map(brand => (
-                        <button 
-                          key={brand} 
-                          onClick={() => toggleBrand(brand)}
-                          className={`px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
-                            selectedBrands.includes(brand) 
-                              ? "bg-blue-600 text-white border-blue-600" 
-                              : "border-slate-200 dark:border-slate-700"
-                          }`}
-                        >
-                          {brand}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
                   <button 
                     onClick={() => { resetFilters(); setIsFilterDrawerOpen(false); }}
                     className="w-full py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 font-bold"
@@ -406,23 +379,6 @@ export default function Home() {
                     <div className="flex justify-between text-xs text-slate-500 mt-1">
                       <span>0km</span>
                       <span>700km</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium mb-4 block">Brand</label>
-                    <div className="space-y-3">
-                      {['Tesla', 'Tata', 'BYD', 'Zenvy'].map(brand => (
-                        <label key={brand} className="flex items-center gap-3 text-sm cursor-pointer group">
-                          <input 
-                            type="checkbox" 
-                            checked={selectedBrands.includes(brand)}
-                            onChange={() => toggleBrand(brand)}
-                            className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" 
-                          />
-                          <span className="group-hover:text-blue-600 transition-colors">{brand}</span>
-                        </label>
-                      ))}
                     </div>
                   </div>
                 </div>
