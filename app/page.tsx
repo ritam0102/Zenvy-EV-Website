@@ -8,10 +8,11 @@ import {
   ShieldCheck, 
   Leaf, 
   Wrench, 
-  Star, 
-  Facebook, 
-  Twitter, 
+  Star,  
   Instagram, 
+  Facebook,
+  Twitter,
+  Youtube,
   Mail, 
   Phone, 
   MapPin,
@@ -157,6 +158,7 @@ export default function Home() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               <a href="#" className="hover:text-blue-600 transition-colors font-medium">Home</a>
+              <a href="#about" className="hover:text-blue-600 transition-colors font-medium">About</a>
               <a href="#cars" className="hover:text-blue-600 transition-colors font-medium">Cars</a>
               <a href="#why-ev" className="hover:text-blue-600 transition-colors font-medium">Why EV</a>
               <a href="#contact" className="hover:text-blue-600 transition-colors font-medium">Contact</a>
@@ -198,6 +200,7 @@ export default function Home() {
           <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 animate-in slide-in-from-top duration-300">
             <div className="px-4 py-6 space-y-4">
               <a href="#" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900">Home</a>
+              <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900">About</a>
               <a href="#cars" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900">Cars</a>
               <a href="#why-ev" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900">Why EV</a>
               <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900">Contact</a>
@@ -233,6 +236,64 @@ export default function Home() {
             <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all active:scale-95">
               Learn More
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 md:py-32 bg-white dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600/10 rounded-full blur-2xl"></div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                The Future of Driving is Electric — <br />
+                <span className="text-blue-600">And It’s Already Here</span>
+              </h2>
+              <div className="space-y-6 text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                <p>
+                  Fuel prices keep rising, city pollution is increasing, and maintaining petrol or diesel cars is becoming more expensive every year. Because of this, many people are now looking at electric vehicles not as a luxury, but as a smart and practical choice for everyday life. Electric cars are no longer just about technology — they are about convenience, savings, and responsibility.
+                </p>
+                <p>
+                  At Zenvy EV, we believe driving should feel smooth, affordable, and future-ready. Electric mobility is not just a trend; it is a better way to move forward.
+                </p>
+                <p>
+                  More drivers are switching to EVs because the benefits are real. Electric vehicles cost less to run monthly, require less maintenance, and remove the stress of fluctuating fuel prices. On top of that, they offer a quiet and comfortable driving experience. Many customers say once they switch to electric, they never want to go back. It simply makes sense financially and practically.
+                </p>
+              </div>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-900 p-8 md:p-12 rounded-[3rem] border border-slate-100 dark:border-slate-800">
+              <div className="space-y-6 text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                <p>
+                  What makes Zenvy EV different is our focus on real people and real lifestyles. Whether someone drives daily in city traffic or enjoys long road trips, our vehicles are designed to fit those needs. With ranges of up to 650 km on a single charge, drivers can travel confidently without worrying about running out of power.
+                </p>
+                <p>
+                  Charging is also easier than many expect. With fast-charging options, a Zenvy EV can be ready to go in about 30 to 50 minutes. This fits perfectly into busy schedules and makes EV ownership simple. Along with this convenience, our cars offer modern interiors, smart features, and a premium feel that makes every drive enjoyable.
+                </p>
+                <p>
+                  Another big advantage is savings. Lower fuel costs and reduced maintenance mean owners save a significant amount of money over time. That money can go toward travel, family, or other life goals instead of fuel bills.
+                </p>
+                <p className="font-semibold text-slate-900 dark:text-white">
+                  Choosing an EV is also a step toward a cleaner future. Every electric car on the road helps reduce pollution and carbon emissions. It’s a small personal choice that creates a big positive impact for the environment and future generations.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-20 text-center max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 mb-10">
+              At Zenvy EV, our vision is clear — we want electric driving to be simple, exciting, and accessible. No complications, no compromises, just smarter mobility. We believe the future of driving should be efficient, enjoyable, and environmentally responsible.
+            </p>
+            <div className="inline-flex flex-col items-center">
+              <p className="text-lg mb-6 text-slate-500">
+                If you’ve been thinking about switching to electric, this might be the right time. Explore Zenvy EV models, book a test drive, and experience the difference yourself. The future of driving is already here, and it’s electric.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <span className="px-6 py-2 bg-blue-600/10 text-blue-600 rounded-full font-bold">Drive smart</span>
+                <span className="px-6 py-2 bg-blue-600/10 text-blue-600 rounded-full font-bold">Drive electric</span>
+                <span className="px-6 py-2 bg-blue-600 text-white rounded-full font-bold">Drive Zenvy</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -607,9 +668,10 @@ export default function Home() {
                 Leading the charge towards a sustainable future with innovative electric mobility solutions.
               </p>
               <div className="flex gap-4">
+                <a href="https://www.instagram.com/zenvy_ev/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition-all active:scale-95"><Instagram className="w-5 h-5" /></a>
+                <a href="https://www.youtube.com/@zenvy_ev" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition-all active:scale-95"><Youtube className="w-5 h-5" /></a>
                 <a href="#" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition-all active:scale-95"><Facebook className="w-5 h-5" /></a>
                 <a href="#" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition-all active:scale-95"><Twitter className="w-5 h-5" /></a>
-                <a href="#" className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition-all active:scale-95"><Instagram className="w-5 h-5" /></a>
               </div>
             </div>
             
